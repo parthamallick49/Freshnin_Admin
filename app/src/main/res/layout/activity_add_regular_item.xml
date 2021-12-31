@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ActivityCreateNewSession">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/appbg"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:liftOnScroll="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/aari_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/appbg"
+        android:fillViewport="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_margin="8dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/aari_food_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/food_bogurar_doi"
+                    app:layout_anchor="@+id/nestedScrollView"
+                    app:layout_anchorGravity="center" />
+
+                <Button
+                    android:id="@+id/aari_btn_uploadPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/green"
+                    android:text="Upload Photo"
+                    android:textAllCaps="false"
+                    android:textSize="18dp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <EditText
+                android:id="@+id/aari_et_product_category"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_inputdata"
+                android:gravity="center|start"
+                android:hint="Product Category"
+                android:paddingLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/cardView"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <EditText
+                android:id="@+id/aari_et_product_name"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_inputdata"
+                android:gravity="center|start"
+                android:hint="Product Name"
+                android:paddingLeft="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/aari_et_product_category"
+                app:layout_constraintStart_toStartOf="@+id/aari_et_product_category"
+                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_category" />
+
+            <EditText
+                android:id="@+id/aari_et_product_discription"
+                android:layout_width="0dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_inputdata"
+                android:gravity="start|top"
+                android:hint="Description"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/aari_et_product_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/aari_et_product_name"
+                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_name" />
+
+            <EditText
+                android:id="@+id/aari_et_product_unit_price"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_inputdata"
+                android:gravity="center|start"
+                android:hint="Product Unit Price"
+                android:paddingLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/aari_et_product_discription"
+                app:layout_constraintStart_toStartOf="@+id/aari_et_product_discription"
+                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_discription"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/aari_et_product_unit_weight"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_inputdata"
+                android:gravity="center|start"
+                android:hint="Product Unit Weight"
+                android:paddingLeft="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/aari_et_product_unit_price"
+                app:layout_constraintStart_toStartOf="@+id/aari_et_product_unit_price"
+                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_unit_price" />
+
+
+            <Button
+                android:id="@+id/aari_btn_add_item"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_button"
+                android:text="Add Item"
+                android:textAllCaps="false"
+                android:textSize="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_unit_weight"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

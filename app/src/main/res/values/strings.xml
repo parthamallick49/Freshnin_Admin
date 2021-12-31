@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Freshnin_Admin</string>
+    <string name="phone_number_email">Phone Number</string>
+    <string name="password">Password</string>
+</resources>

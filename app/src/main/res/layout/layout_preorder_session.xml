@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/apas_item"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="12dp">
+
+        <ImageView
+            android:id="@+id/apas_ivFoodImage"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:foreground="@drawable/bg_gradient_whitish"
+            android:scaleType="centerCrop"
+            android:src="@drawable/food_bogurar_doi" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Running"
+            android:textSize="16dp"
+            android:textAllCaps="false"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/green"/>
+
+        <TextView
+            android:id="@+id/apas_tvFoodTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="100dp"
+            android:text="Bogurar Doi"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/apas_tvPreOrderDateLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="125dp"
+            android:text="Order going on till"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/apas_tvOrderRemainday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="125dp"
+            android:text="WednessDay"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

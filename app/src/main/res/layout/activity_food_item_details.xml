@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ActivityPreOrderProductDetails">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/apopd_appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/apopd_collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="@color/theam_color"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:scrimAnimationDuration="400">
+
+            <ImageView
+                android:id="@+id/afid_food_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:foreground="@drawable/bg_gradient_blackish"
+                android:src="@drawable/food_bogurar_doi"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"
+                android:scaleType="fitXY" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/afid_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:titleTextColor="@color/white"
+                app:navigationIcon="@drawable/icon_back_arrow_circle"
+                app:layout_collapseMode="pin"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/afid_scrollView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <EditText
+                    android:id="@+id/afid_et_product_name"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_inputdata"
+                    android:gravity="center|start"
+                    android:paddingLeft="10dp"
+                    android:text="Product Name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <EditText
+                    android:id="@+id/afid_et_product_description"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_inputdata"
+                    android:gravity="top|start"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="Decription"
+                    app:layout_constraintEnd_toEndOf="@+id/afid_et_product_name"
+                    app:layout_constraintStart_toStartOf="@+id/afid_et_product_name"
+                    app:layout_constraintTop_toBottomOf="@+id/afid_et_product_name" />
+
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Price (Tk)"
+                    android:textSize="18dp"
+                    app:layout_constraintStart_toStartOf="@+id/afid_et_product_description"
+                    app:layout_constraintTop_toBottomOf="@+id/afid_et_product_description" />
+
+
+                <EditText
+                    android:id="@+id/afid_et_product_price"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_inputdata"
+                    android:gravity="center|start"
+                    android:paddingLeft="10dp"
+                    android:text="450"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="@+id/afid_et_product_description"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/afid_et_product_description"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Weight (gram)"
+                    android:textSize="18dp"
+                    app:layout_constraintStart_toStartOf="@+id/afid_et_product_price"
+                    app:layout_constraintTop_toBottomOf="@+id/afid_et_product_price" />
+
+                <EditText
+                    android:id="@+id/afid_et_product_weight"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_inputdata"
+                    android:gravity="center|start"
+                    android:paddingLeft="10dp"
+                    android:text="700"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="@+id/afid_et_product_price"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+                <TextView
+                    android:id="@+id/afid_btnOrderNow"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_button"
+                    android:gravity="center"
+                    android:text="Edit"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/afid_et_product_weight"
+                    app:layout_constraintStart_toStartOf="@+id/afid_et_product_weight"
+                    app:layout_constraintTop_toBottomOf="@+id/afid_et_product_weight"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
