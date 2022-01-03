@@ -44,6 +44,33 @@ public class ActivityRegularOrderHistory extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         onGoingOrderList=new ArrayList<>();
+        onGoingOrderList.add(new ModelOnGoingOrder(
+                "jav12712"
+        ));
+        onGoingOrderList.add(new ModelOnGoingOrder(
+                "asdhj223"
+        ));
+        onGoingOrderList.add(new ModelOnGoingOrder(
+                "1q2372712"
+        ));
+        onGoingOrderList.add(new ModelOnGoingOrder(
+                "ghavcj8123"
+        ));onGoingOrderList.add(new ModelOnGoingOrder(
+                "hbsc320"
+        ));
+        onGoingOrderList.add(new ModelOnGoingOrder(
+                "sbs3"
+        ));onGoingOrderList.add(new ModelOnGoingOrder(
+                "nacj2"
+        ));
+        onGoingOrderList.add(new ModelOnGoingOrder(
+                "scks2"
+        ));
+        onGoingOrderList.add(new ModelOnGoingOrder(
+                "kjusvjk8"
+        ));
+
+
         onGoingOrdersRecy=findViewById(R.id.aroh_regularOrderHistoryRecy);
         onGoingOrdersRecy.setLayoutManager(new LinearLayoutManager(this));
         adapterOnGoingOrderRecy=new AdapterOnGoingOrderRecy(onGoingOrderList,ActivityRegularOrderHistory.this);

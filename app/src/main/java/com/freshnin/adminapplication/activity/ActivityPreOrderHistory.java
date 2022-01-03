@@ -47,6 +47,18 @@ public class ActivityPreOrderHistory extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         preOrderHistoryList=new ArrayList<>();
+        preOrderHistoryList.add(new ModelOngoingPreOrder(
+                "Bogurar Doi"
+        ));
+        preOrderHistoryList.add(new ModelOngoingPreOrder(
+                "Bogurar Khirsha"
+        ));
+        preOrderHistoryList.add(new ModelOngoingPreOrder(
+                "Bogurar Chomchom"
+        ));
+        preOrderHistoryList.add(new ModelOngoingPreOrder(
+                "Bogurar Doi"
+        ));
 
         preOrderHistoryRecy=findViewById(R.id.apoh_preOrderHistoryRecy);
         preOrderHistoryRecy.setLayoutManager(new LinearLayoutManager(ActivityPreOrderHistory.this));

@@ -33,5 +33,5 @@ public class ActivityFoodItemDetails extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-    }
+    } //android:foreground="@drawable/bg_gradient_blackish"
 }

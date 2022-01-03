@@ -49,10 +49,33 @@ public class ActivityOnGoingOrderDetails extends AppCompatActivity {
         toolbar=findViewById(R.id.aogod_onGOingOrder_details_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Order Id: ");
 
         foodItemList=new ArrayList<>();
-        billingFoodList=new ArrayList<>();
+        foodItemList.add(new ModelRegularItem(
+                "Bogurar Doi"
+        ));
+        foodItemList.add(new ModelRegularItem(
+                "Bogurar Khirsah"
+        ));
+        foodItemList.add(new ModelRegularItem(
+                "Bogurar Doi"
+        ));
 
+
+        billingFoodList=new ArrayList<>();
+        billingFoodList.add(new ModelRegularItem(
+                "Bogurar Doi"
+        ));
+        billingFoodList.add(new ModelRegularItem(
+                "Bogurar Khirsah"
+        ));
+        billingFoodList.add(new ModelRegularItem(
+                "Bogurar Doi"
+        ));
+        billingFoodList.add(new ModelRegularItem(
+                "Bogurar Chomchom"
+        ));
         onGoingOrderProdeuctRecy =findViewById(R.id.aogod_productList_recy);
         onGoingOrderProdeuctRecy.setLayoutManager(new LinearLayoutManager(ActivityOnGoingOrderDetails.this));
         adapterOnGoingOrderDetailsFoodListRecy=new AdapterOnGoingOrderDetailsFoodListRecy(foodItemList,ActivityOnGoingOrderDetails.this);

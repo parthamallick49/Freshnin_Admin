@@ -34,6 +34,10 @@ public class ModelOnGoingOrder {
         this.items = items;
     }
 
+    public ModelOnGoingOrder(String orderId) {
+        this.orderId = orderId;
+    }
+
     public ModelOnGoingOrder() {
     }
 

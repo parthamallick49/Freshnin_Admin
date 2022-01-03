@@ -30,6 +30,10 @@ public class ModelPreOrder {
         this.status = status;
     }
 
+    public ModelPreOrder(String productName) {
+        this.productName = productName;
+    }
+
     public ModelPreOrder() {
 
     }

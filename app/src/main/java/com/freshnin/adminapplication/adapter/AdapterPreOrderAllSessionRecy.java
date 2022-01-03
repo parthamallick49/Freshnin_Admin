@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.freshnin.adminapplication.R;
 import com.freshnin.adminapplication.model.ModelPreOrder;
+import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -42,13 +43,14 @@ public class AdapterPreOrderAllSessionRecy extends RecyclerView.Adapter<AdapterP
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderAdapterActivityPreOrderAllSession holder, int position) {
+        //Picasso.with(context).load(preOrderSessionList.get(position).getProductPicUrl()).into(holder.ivPreOrderFoodImage);
         holder.tvPreOrderFoodTitle.setText(preOrderSessionList.get(position).getProductName());
-
-        try {
+        //holder.tvOrderGoingOnTillDay.setText(preOrderSessionList.get(position).getSessionEndDate());
+        /*try {
             holder.tvOrderGoingOnTillDay.setText(getDayName(preOrderSessionList.get(position).getSessionEndDate()));
         } catch (ParseException e) {
             Log.d(TAG, "AdapterPreOrderFoodRecy: error"+e.getMessage());;
-        }
+        }*/
     }
 
     @Override
@@ -63,19 +65,19 @@ public class AdapterPreOrderAllSessionRecy extends RecyclerView.Adapter<AdapterP
         public ViewHolderAdapterActivityPreOrderAllSession(@NonNull View itemView) {
             super(itemView);
             tvPreOrderFoodTitle =itemView.findViewById(R.id.apas_tvFoodTitle);
-            tvOrderGoingOnTillDay=itemView.findViewById(R.id.apas_tvOrderRemainday);
+            //tvOrderGoingOnTillDay=itemView.findViewById(R.id.apas_tvOrderRemainday);
             ivPreOrderFoodImage = itemView.findViewById(R.id.apas_ivFoodImage);
 
 
         }
     }
 
-    private String getDayName(String sessionEndDate) throws ParseException {
+    /*private String getDayName(String sessionEndDate) throws ParseException {
         SimpleDateFormat inFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = inFormat.parse(sessionEndDate);
         SimpleDateFormat outFormat = new SimpleDateFormat("EEEE");
         String dayName = outFormat.format(date);
 
         return dayName;
-    }
+    }*/
 }

@@ -38,7 +38,7 @@ public class AdapterPreorderHistoryRecy extends RecyclerView.Adapter<AdapterPreo
         holder.tvPreOrderId.setText(onGoingPreOrder.get(position).getOrderId());
         holder.tvPreOrderDeliveryDate.setText(onGoingPreOrder.get(position).getOrderDeliveryDate());
 
-        switch (onGoingPreOrder.get(position).getAdvancePaymentStatus()){
+        /*switch (onGoingPreOrder.get(position).getAdvancePaymentStatus()){
             case "1":
                 holder.tvPreOrderPaymentStatus.setText("Verification Pending");
                 break;
@@ -48,7 +48,7 @@ public class AdapterPreorderHistoryRecy extends RecyclerView.Adapter<AdapterPreo
             case "3":
                 holder.tvPreOrderPaymentStatus.setText("Declined");
                 break;
-        }
+        }*/
 
     }
 

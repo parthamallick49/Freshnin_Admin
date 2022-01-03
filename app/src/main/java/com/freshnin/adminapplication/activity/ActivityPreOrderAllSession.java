@@ -45,6 +45,18 @@ public class ActivityPreOrderAllSession extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         preOrderList=new ArrayList<>();
+        preOrderList.add(new ModelPreOrder(
+                "Bogurar Doi"
+        ));
+        preOrderList.add(new ModelPreOrder(
+                "Bogurar Khirsha"
+        ));
+        preOrderList.add(new ModelPreOrder(
+                "Bogurar ChomChom"
+        ));
+        preOrderList.add(new ModelPreOrder(
+                "Bogurar Doi"
+        ));
         preOrderSessionRecy=findViewById(R.id.apsa_pre_Order_FoodRecy);
         preOrderSessionRecy.setLayoutManager(new LinearLayoutManager(this));
         adapterPreOrderAllSessionRecy =new AdapterPreOrderAllSessionRecy(preOrderList,this);

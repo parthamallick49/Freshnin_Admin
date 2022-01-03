@@ -46,6 +46,10 @@ public class ModelOngoingPreOrder {
         this.url = url;
     }
 
+    public ModelOngoingPreOrder(String itemName) {
+        this.itemName = itemName;
+    }
+
     public ModelOngoingPreOrder() {
     }
 

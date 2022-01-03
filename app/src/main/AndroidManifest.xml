@@ -13,15 +13,12 @@
         <activity
             android:name=".activity.ActivityAllRegularItemsList"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.ActivityOnGoingOrderDetails"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".activity.ActivityRegularOrderHistory"
             android:exported="true">
@@ -29,28 +26,48 @@
         </activity>
         <activity
             android:name=".activity.ActivityFoodItemDetails"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".activity.ActivityAddRegularItem"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".activity.ActivityPreOrderProductDetails"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".activity.ActivityPreOrderDetails"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".activity.ActivityPreOrderHistory"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".activity.ActivityCreateNewSession"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".activity.ActivityPreOrderAllSession"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.ActivityLogIn"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>
