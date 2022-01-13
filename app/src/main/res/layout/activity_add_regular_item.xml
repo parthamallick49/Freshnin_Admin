@@ -10,7 +10,6 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/appbg"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +18,9 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/aari_toolbar"
+            app:navigationIcon="@drawable/ic_backarrow_white"
             android:layout_width="match_parent"
+            app:titleTextColor="@color/white"
             android:layout_height="?attr/actionBarSize">
 
         </androidx.appcompat.widget.Toolbar>
@@ -30,12 +31,10 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/appbg"
-        android:fillViewport="true"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
@@ -52,53 +51,70 @@
                 <ImageView
                     android:id="@+id/aari_food_image"
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_height="170dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/food_bogurar_doi"
+                    android:src="@drawable/placeholder"
                     app:layout_anchor="@+id/nestedScrollView"
                     app:layout_anchorGravity="center" />
 
-                <Button
-                    android:id="@+id/aari_btn_uploadPhoto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:backgroundTint="@color/green"
-                    android:text="Upload Photo"
-                    android:textAllCaps="false"
-                    android:textSize="18dp" />
-
             </androidx.cardview.widget.CardView>
 
+            <Button
+                android:id="@+id/aari_btn_uploadPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/green65"
+                android:text="Upload Photo"
+                android:textAllCaps="false"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-            <EditText
+
+           <!-- <EditText
                 android:id="@+id/aari_et_product_category"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="24dp"
                 android:background="@drawable/bg_inputdata"
                 android:gravity="center|start"
                 android:hint="Product Category"
                 android:paddingLeft="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/cardView"
                 app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView"
-                app:layout_constraintVertical_bias="0.0" />
+                tools:layout_editor_absoluteY="464dp" />-->
+
+            <Spinner
+                android:id="@+id/aari_spinnerCategory"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_inputdata"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:padding="5dp"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="@+id/aari_et_product_discription"
+                app:layout_constraintStart_toStartOf="@+id/aari_et_product_discription"
+                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_discription" />
 
 
             <EditText
                 android:id="@+id/aari_et_product_name"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/bg_inputdata"
                 android:gravity="center|start"
                 android:hint="Product Name"
                 android:paddingLeft="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/aari_et_product_category"
-                app:layout_constraintStart_toStartOf="@+id/aari_et_product_category"
-                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_category" />
+                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/aari_btn_uploadPhoto" />
 
             <EditText
                 android:id="@+id/aari_et_product_discription"
@@ -124,11 +140,9 @@
                 android:gravity="center|start"
                 android:hint="Product Unit Price"
                 android:paddingLeft="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/aari_et_product_discription"
                 app:layout_constraintStart_toStartOf="@+id/aari_et_product_discription"
-                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_discription"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/aari_spinnerCategory" />
 
             <EditText
                 android:id="@+id/aari_et_product_unit_weight"
@@ -144,24 +158,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/aari_et_product_unit_price" />
 
 
+
             <Button
                 android:id="@+id/aari_btn_add_item"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="14dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/bg_button"
                 android:text="Add Item"
                 android:textAllCaps="false"
                 android:textSize="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/aari_et_product_unit_weight"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_unit_weight"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintStart_toStartOf="@+id/aari_et_product_unit_weight"
+                app:layout_constraintTop_toBottomOf="@+id/aari_et_product_unit_weight" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

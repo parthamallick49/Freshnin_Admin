@@ -1,31 +1,77 @@
 package com.freshnin.adminapplication.model;
 
-public class ModelOngoingPreOrder {
+import android.os.Parcel;
+import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+public class ModelOngoingPreOrder implements Parcelable {
+
+    @SerializedName("orderId")
+    @Expose
     private String orderId;
+    @SerializedName("itemId")
+    @Expose
     private String itemId;
+    @SerializedName("userId")
+    @Expose
     private String userId;
+    @SerializedName("itemName")
+    @Expose
     private String itemName;
+    @SerializedName("orderPlaceDate")
+    @Expose
     private String orderPlaceDate;
+    @SerializedName("orderDeliveryDate")
+    @Expose
     private String orderDeliveryDate;
+    @SerializedName("orderQuantity")
+    @Expose
     private String orderQuantity;
+    @SerializedName("deliveryAddress")
+    @Expose
     private String deliveryAddress;
+    @SerializedName("inTownDelivery")
+    @Expose
     private String inTownDelivery;
+    @SerializedName("deliveryCharge")
+    @Expose
     private String deliveryCharge;
+    @SerializedName("totalBill")
+    @Expose
     private String totalBill;
+    @SerializedName("advancePyamentAmount")
+    @Expose
     private String advancePyamentAmount;
+    @SerializedName("advancePaymentStatus")
+    @Expose
     private String advancePaymentStatus;
+    @SerializedName("transactionId")
+    @Expose
     private String transactionId;
+    @SerializedName("paymnetMethod")
+    @Expose
     private String paymnetMethod;
+    @SerializedName("advancePaymentMethod")
+    @Expose
     private String advancePaymentMethod;
+    @SerializedName("orderStatus")
+    @Expose
     private String orderStatus;
+    @SerializedName("url")
+    @Expose
     private String url;
 
-    public ModelOngoingPreOrder(String orderId, String itemId, String userId, String itemName, String orderPlaceDate,
-                                String orderDeliveryDate, String orderQuantity, String deliveryAddress,
-                                String inTownDelivery, String deliveryCharge, String totalBill,
-                                String advancePyamentAmount, String advancePaymentStatus, String transactionId,
-                                String paymnetMethod, String advancePaymentMethod, String orderStatus, String url) {
+    public ModelOngoingPreOrder(String orderId, String itemId, String userId,
+                                String itemName, String orderPlaceDate,
+                                String orderDeliveryDate, String orderQuantity,
+                                String deliveryAddress, String inTownDelivery,
+                                String deliveryCharge, String totalBill,
+                                String advancePyamentAmount, String advancePaymentStatus,
+                                String transactionId, String paymnetMethod,
+                                String advancePaymentMethod, String orderStatus,
+                                String url) {
         this.orderId = orderId;
         this.itemId = itemId;
         this.userId = userId;
@@ -46,12 +92,11 @@ public class ModelOngoingPreOrder {
         this.url = url;
     }
 
-    public ModelOngoingPreOrder(String itemName) {
-        this.itemName = itemName;
-    }
-
     public ModelOngoingPreOrder() {
     }
+
+
+
 
     public String getOrderId() {
         return orderId;
@@ -195,5 +240,69 @@ public class ModelOngoingPreOrder {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+
+
+
+    //================================
+    protected ModelOngoingPreOrder(Parcel in) {
+        orderId = in.readString();
+        itemId = in.readString();
+        userId = in.readString();
+        itemName = in.readString();
+        orderPlaceDate = in.readString();
+        orderDeliveryDate = in.readString();
+        orderQuantity = in.readString();
+        deliveryAddress = in.readString();
+        inTownDelivery = in.readString();
+        deliveryCharge = in.readString();
+        totalBill = in.readString();
+        advancePyamentAmount = in.readString();
+        advancePaymentStatus = in.readString();
+        transactionId = in.readString();
+        paymnetMethod = in.readString();
+        advancePaymentMethod = in.readString();
+        orderStatus = in.readString();
+        url = in.readString();
+    }
+
+    public static final Creator<ModelOngoingPreOrder> CREATOR = new Creator<ModelOngoingPreOrder>() {
+        @Override
+        public ModelOngoingPreOrder createFromParcel(Parcel in) {
+            return new ModelOngoingPreOrder(in);
+        }
+
+        @Override
+        public ModelOngoingPreOrder[] newArray(int size) {
+            return new ModelOngoingPreOrder[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(orderId);
+        dest.writeString(itemId);
+        dest.writeString(userId);
+        dest.writeString(itemName);
+        dest.writeString(orderPlaceDate);
+        dest.writeString(orderDeliveryDate);
+        dest.writeString(orderQuantity);
+        dest.writeString(deliveryAddress);
+        dest.writeString(inTownDelivery);
+        dest.writeString(deliveryCharge);
+        dest.writeString(totalBill);
+        dest.writeString(advancePyamentAmount);
+        dest.writeString(advancePaymentStatus);
+        dest.writeString(transactionId);
+        dest.writeString(paymnetMethod);
+        dest.writeString(advancePaymentMethod);
+        dest.writeString(orderStatus);
+        dest.writeString(url);
     }
 }

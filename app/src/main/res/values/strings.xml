@@ -2,4 +2,12 @@
     <string name="app_name">Freshnin_Admin</string>
     <string name="phone_number_email">Phone Number</string>
     <string name="password">Password</string>
+
+    <string-array name="days_list">
+        <item>Select Category</item>
+        <item>Dry Food</item>
+        <item>Edible Oil</item>
+        <item>Herbal Item</item>
+        <item>Others</item>
+    </string-array>
 </resources>

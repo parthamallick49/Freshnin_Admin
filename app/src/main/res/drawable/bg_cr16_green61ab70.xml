@@ -1,0 +1,37 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/getStartedButtonColor"/>
+    <corners android:radius="32dp"/>
+</shape>
+
+
+<!--
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <item >
+                <shape>
+                    <gradient android:angle="90"
+                        android:endColor="@color/white"
+                        android:startColor="@color/black25" />
+                    <corners android:radius="30dp" />
+                </shape>
+            </item>
+
+            &lt;!&ndash;<item android:bottom="8dp" android:right="8dp">
+                <shape>
+                    <gradient android:angle="270"
+                        android:endColor="@color/getStartedButtonColor"
+                        android:startColor="@color/getStartedButtonColor" />
+
+                    <corners android:radius="16dp" />
+
+                    <padding android:bottom="10dp"
+                        android:left="10dp"
+                        android:right="10dp"
+                        android:top="10dp" />
+                </shape>
+            </item>&ndash;&gt;
+        </layer-list>
+    </item>
+
+</selector>-->

@@ -9,9 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.freshnin.adminapplication.R;
+import com.freshnin.adminapplication.callbacks.AdapterPreOrderAllSessionCallbacks;
 import com.freshnin.adminapplication.model.ModelPreOrder;
 import com.squareup.picasso.Picasso;
 
@@ -26,10 +28,12 @@ public class AdapterPreOrderAllSessionRecy extends RecyclerView.Adapter<AdapterP
 
     List<ModelPreOrder> preOrderSessionList;
     Context context;
+    AdapterPreOrderAllSessionCallbacks callbacks;
 
-    public AdapterPreOrderAllSessionRecy(List<ModelPreOrder> preOrderSessionList, Context context) {
+    public AdapterPreOrderAllSessionRecy(List<ModelPreOrder> preOrderSessionList, Context context, AdapterPreOrderAllSessionCallbacks callbacks) {
         this.preOrderSessionList = preOrderSessionList;
         this.context = context;
+        this.callbacks=callbacks;
     }
 
     @NonNull
@@ -43,14 +47,25 @@ public class AdapterPreOrderAllSessionRecy extends RecyclerView.Adapter<AdapterP
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderAdapterActivityPreOrderAllSession holder, int position) {
-        //Picasso.with(context).load(preOrderSessionList.get(position).getProductPicUrl()).into(holder.ivPreOrderFoodImage);
-        holder.tvPreOrderFoodTitle.setText(preOrderSessionList.get(position).getProductName());
-        //holder.tvOrderGoingOnTillDay.setText(preOrderSessionList.get(position).getSessionEndDate());
-        /*try {
-            holder.tvOrderGoingOnTillDay.setText(getDayName(preOrderSessionList.get(position).getSessionEndDate()));
-        } catch (ParseException e) {
-            Log.d(TAG, "AdapterPreOrderFoodRecy: error"+e.getMessage());;
-        }*/
+        Picasso.with(context).load(preOrderSessionList.get(position).getProductPicUrl()).into(holder.ivPreOrderFoodImage);
+        switch (preOrderSessionList.get(position).getSessionStatus()){
+            case 1:
+                holder.status.setText("Created");
+                break;
+            case 2:
+                holder.status.setText("Published");
+                break;
+            case 3:
+                holder.status.setText("Unpublished");
+                break;
+        }
+
+        holder.apasHolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callbacks.onItemClicked(position);
+            }
+        });
     }
 
     @Override
@@ -59,25 +74,15 @@ public class AdapterPreOrderAllSessionRecy extends RecyclerView.Adapter<AdapterP
     }
 
     public class ViewHolderAdapterActivityPreOrderAllSession extends RecyclerView.ViewHolder{
-        TextView tvPreOrderFoodTitle, tvOrderGoingOnTillDay;
         ImageView ivPreOrderFoodImage;
+        TextView status;
+        CardView apasHolder;
 
         public ViewHolderAdapterActivityPreOrderAllSession(@NonNull View itemView) {
             super(itemView);
-            tvPreOrderFoodTitle =itemView.findViewById(R.id.apas_tvFoodTitle);
-            //tvOrderGoingOnTillDay=itemView.findViewById(R.id.apas_tvOrderRemainday);
             ivPreOrderFoodImage = itemView.findViewById(R.id.apas_ivFoodImage);
-
-
+            status=itemView.findViewById(R.id.tvPreOrderFoodStatus);
+            apasHolder=itemView.findViewById(R.id.apasHolder);
         }
     }
-
-    /*private String getDayName(String sessionEndDate) throws ParseException {
-        SimpleDateFormat inFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = inFormat.parse(sessionEndDate);
-        SimpleDateFormat outFormat = new SimpleDateFormat("EEEE");
-        String dayName = outFormat.format(date);
-
-        return dayName;
-    }*/
 }

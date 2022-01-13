@@ -10,7 +10,6 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/appbg"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,6 +18,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/acns_toolbar"
+            app:navigationIcon="@drawable/ic_backarrow_white"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
 
@@ -30,12 +30,10 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/appbg"
-        android:fillViewport="true"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
@@ -54,27 +52,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/food_bogurar_doi"
+                    android:src="@drawable/placeholder"
                     app:layout_anchor="@+id/nestedScrollView"
                     app:layout_anchorGravity="center" />
 
-                <Button
-                    android:id="@+id/acns_btn_uploadPhoto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:backgroundTint="@color/green"
-                    android:text="Upload Photo"
-                    android:textAllCaps="false"
-                    android:textSize="18dp" />
+
 
             </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/acns_btn_uploadPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/green65"
+                android:text="Upload Photo"
+                android:textAllCaps="false"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
             <EditText
                 android:id="@+id/acns_et_product_name"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/bg_inputdata"
                 android:gravity="center|start"
                 android:hint="Product Name"
@@ -83,7 +86,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/cardView"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/acns_btn_uploadPhoto"
                 app:layout_constraintVertical_bias="0.0" />
 
 
@@ -172,18 +175,16 @@
                 android:id="@+id/acns_btn_create_session"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="14dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="14dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/bg_button"
                 android:text="Create Session"
                 android:textAllCaps="false"
                 android:textSize="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/acns_et_product_session_endDate"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/acns_et_product_session_endDate"
                 app:layout_constraintTop_toBottomOf="@+id/acns_et_product_session_endDate"
                 app:layout_constraintVertical_bias="0.0" />
 

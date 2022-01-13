@@ -7,19 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.freshnin.adminapplication.R;
+import com.freshnin.adminapplication.databinding.ActivityFoodItemDetailsBinding;
+import com.freshnin.adminapplication.model.ModelRegularItem;
+import com.squareup.picasso.Picasso;
 
 public class ActivityFoodItemDetails extends AppCompatActivity {
+    private static final String TAG = "ActivityFoodItemDetails";
+    private ActivityFoodItemDetailsBinding binding;
 
-
-    private Toolbar toolbar;
+    private ModelRegularItem itemDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_item_details);
+        binding=ActivityFoodItemDetailsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        //setContentView(R.layout.activity_food_item_details);
         init();
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        binding.afidBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
@@ -28,10 +34,15 @@ public class ActivityFoodItemDetails extends AppCompatActivity {
     }
 
     private void init(){
-        toolbar=findViewById(R.id.afid_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        itemDetails=getIntent().getParcelableExtra("data");
+        if(itemDetails!=null)updateUI(itemDetails);
+    }
 
-    } //android:foreground="@drawable/bg_gradient_blackish"
+    void updateUI(ModelRegularItem item){
+        Picasso.with(this).load(item.getProductPicUrl()).into(binding.afidFoodImage);
+        binding.afidEtProductName.setText(item.getProductName());
+        binding.afidEtProductDescription.setText(item.getProductDes());
+        binding.afidEtProductPrice.setText(item.getProductUnitPrice()+"");
+        binding.afidEtProductWeight.setText(item.getProductUnitWeight()+"");
+    }
 }

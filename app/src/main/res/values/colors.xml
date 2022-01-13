@@ -11,9 +11,33 @@
     <color name="green">#19AF1F</color>
     <color name="red">#FB3535</color>
     <color name="appbg">#EEF0F3</color>
-    <color name="fade_ash">#CAC9C9</color>
+    <color name="fade_ash">#F2FDF3</color>
     <color name="theam_color">#4B82F3</color>
     <color name="black30">#CC000000</color>
+
+    <color name="white_blue">#E1FCFF</color>
+
+    <color name="green_200">#FF56A770</color>
+    <color name="green_500">#FF56A770</color>
+    <color name="green_700">#FF40804B</color>
+    <color name="colorSecondary">#FF56A770</color>
+    <color name="colorPrimary">#FF40804B</color>
+    <color name="black90P">#E6000000</color>
+    <color name="black25">#40000000</color>
+    <color name="ColorF3E9D2">#FFF3E9D2</color>
+    <color name="Color1F3342">#FF1F3342</color>
+
+    <color name="green61AB70">#FF61AB70</color>
+    <color name="green65">#A661AB70</color>
+    <color name="getStartedButtonColor">#2A7C3B</color>
+    <color name="backgroundColor1">#FFF3E9D2</color>
+    <color name="color808080">#FF808080</color>
+    <color name="colorC7C7C7">#FFC7C7C7</color>
+    <color name="color616161">#616161</color>
+    <color name="Color61AB70">#61AB70</color>
+    <color name="Color1A936F">#1A936F</color>
+    <color name="ColorBlue">#586BD6</color>
+    <color name="pagebackground">#F3E9D2</color>
 
 
 </resources>

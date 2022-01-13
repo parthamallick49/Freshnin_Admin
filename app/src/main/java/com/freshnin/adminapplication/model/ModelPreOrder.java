@@ -1,22 +1,54 @@
 package com.freshnin.adminapplication.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class ModelPreOrder {
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+public class ModelPreOrder implements Parcelable {
+
+    @SerializedName("productId")
+    @Expose
     private String productId;
+    @SerializedName("productName")
+    @Expose
     private String productName;
+    @SerializedName("productShortDes")
+    @Expose
     private String productShortDes;
+    @SerializedName("productPicUrl")
+    @Expose
     private String productPicUrl;
-    private String productUnitPrice;
-    private String productUnitWeight;
+    @SerializedName("productUnitPrice")
+    @Expose
+    private int productUnitPrice;
+    @SerializedName("productUnitWeight")
+    @Expose
+    private int productUnitWeight;
+    @SerializedName("sessionStartDate")
+    @Expose
     private String sessionStartDate;
+
+    @SerializedName("sessionEndDate")
+    @Expose
     private String sessionEndDate;
+
+    @SerializedName("sessionStatus")
+    @Expose
+    private int sessionStatus;
+
+
+    @SerializedName("response")
+    @Expose
     private Integer response;
+    @SerializedName("status")
+    @Expose
     private String status;
 
     public ModelPreOrder(String productId, String productName, String productShortDes, String productPicUrl,
-                         String productUnitPrice, String productUnitWeight, String sessionStartDate,
+                         int productUnitPrice, int productUnitWeight, String sessionStartDate,
                          String sessionEndDate, Integer response, String status) {
         this.productId = productId;
         this.productName = productName;
@@ -30,13 +62,78 @@ public class ModelPreOrder {
         this.status = status;
     }
 
-    public ModelPreOrder(String productName) {
+    public ModelPreOrder(String productId, String productName, String productShortDes, String productPicUrl,
+                         int productUnitPrice, int productUnitWeight, String sessionStartDate, String sessionEndDate, int sessionStatus) {
+        this.productId = productId;
         this.productName = productName;
+        this.productShortDes = productShortDes;
+        this.productPicUrl = productPicUrl;
+        this.productUnitPrice = productUnitPrice;
+        this.productUnitWeight = productUnitWeight;
+        this.sessionStartDate = sessionStartDate;
+        this.sessionEndDate = sessionEndDate;
+        this.sessionStatus = sessionStatus;
     }
 
-    public ModelPreOrder() {
-
+    public ModelPreOrder(String productId, int sessionStatus) {
+        this.productId = productId;
+        this.sessionStatus = sessionStatus;
     }
+
+    protected ModelPreOrder(Parcel in) {
+        productId = in.readString();
+        productName = in.readString();
+        productShortDes = in.readString();
+        productPicUrl = in.readString();
+        productUnitPrice = in.readInt();
+        productUnitWeight = in.readInt();
+        sessionStartDate = in.readString();
+        sessionEndDate = in.readString();
+        sessionStatus = in.readInt();
+        if (in.readByte() == 0) {
+            response = null;
+        } else {
+            response = in.readInt();
+        }
+        status = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(productId);
+        dest.writeString(productName);
+        dest.writeString(productShortDes);
+        dest.writeString(productPicUrl);
+        dest.writeInt(productUnitPrice);
+        dest.writeInt(productUnitWeight);
+        dest.writeString(sessionStartDate);
+        dest.writeString(sessionEndDate);
+        dest.writeInt(sessionStatus);
+        if (response == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(response);
+        }
+        dest.writeString(status);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<ModelPreOrder> CREATOR = new Creator<ModelPreOrder>() {
+        @Override
+        public ModelPreOrder createFromParcel(Parcel in) {
+            return new ModelPreOrder(in);
+        }
+
+        @Override
+        public ModelPreOrder[] newArray(int size) {
+            return new ModelPreOrder[size];
+        }
+    };
 
     public String getProductId() {
         return productId;
@@ -70,19 +167,19 @@ public class ModelPreOrder {
         this.productPicUrl = productPicUrl;
     }
 
-    public String getProductUnitPrice() {
+    public int getProductUnitPrice() {
         return productUnitPrice;
     }
 
-    public void setProductUnitPrice(String productUnitPrice) {
+    public void setProductUnitPrice(int productUnitPrice) {
         this.productUnitPrice = productUnitPrice;
     }
 
-    public String getProductUnitWeight() {
+    public int getProductUnitWeight() {
         return productUnitWeight;
     }
 
-    public void setProductUnitWeight(String productUnitWeight) {
+    public void setProductUnitWeight(int productUnitWeight) {
         this.productUnitWeight = productUnitWeight;
     }
 
@@ -102,6 +199,14 @@ public class ModelPreOrder {
         this.sessionEndDate = sessionEndDate;
     }
 
+    public int getSessionStatus() {
+        return sessionStatus;
+    }
+
+    public void setSessionStatus(int sessionStatus) {
+        this.sessionStatus = sessionStatus;
+    }
+
     public Integer getResponse() {
         return response;
     }
@@ -116,5 +221,9 @@ public class ModelPreOrder {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public static Creator<ModelPreOrder> getCREATOR() {
+        return CREATOR;
     }
 }
